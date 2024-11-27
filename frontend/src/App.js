@@ -1,8 +1,13 @@
 import createGlobalStyle from "./styles/global";
 import styled from "styled-components";
+<<<<<<< HEAD
 import Form from "./components/Form.js";
 import Grid from "./components/Grid";
 import { userState } from "react";
+=======
+import Form from "../components/Form.js";
+import Grid from "../components/Grid.js";
+>>>>>>> bda9fd10cbb0dcf286aad59398a76acc3ec6cfbf
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
