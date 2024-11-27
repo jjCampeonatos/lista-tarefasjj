@@ -9,4 +9,5 @@ app.use(cors());
 
 app.use("/", userRoutes)
 
-app.listen(8800);
+
+app.listen(3333, () => console.log("Servidor Rodando...")) ;
