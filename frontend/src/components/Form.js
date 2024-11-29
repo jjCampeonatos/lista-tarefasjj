@@ -12,7 +12,8 @@ const FormContainer = styled.form`
     padding: 20px;
     box-shadow: 0px 0px 5px #ccc;
     border-radius: 5px;
-`;
+`
+;
 
 const InputArea = styled.div`
     display: flex;
@@ -97,6 +98,7 @@ const Form = ({getUser, onEdit, setOnEdit}) => {
         getUser();
     };
 
+    
     return ( 
         <FormContainer ref={ref} onSubmit={handleSubmit}>
             <InputArea>
