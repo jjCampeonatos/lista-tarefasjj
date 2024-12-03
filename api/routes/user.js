@@ -26,6 +26,32 @@ rout_user.get("/lista", (req, res) =>
         res.json(result);
     })
 })
+
+rout_user.delete("/delete", (req, res) => {
+    const { id } = req.body;
+    db.query(`delete from usuarios where id =${id}`),(err,result) =>{
+        if (err){
+            return res.json(err.message)
+        }
+    }
+
+    res.json({
+        Deletado:`produto${result.name} deletado com sucesso`
+    });
+    });
+   
+rout_user.post ("/atualização", (req, res) => {
+  const { nome, email, fone, data_nascimento, id} = req.body;
+
+  db.query(`update nomeTabela set cam poAnterior='novoCampo'
+    where id=${id}`,(err,result)=> {
+    
+    res.json ({
+    Edição: `Produto alterado com sucesso!`
+    })
+    })
+    })
+
     
 
 export { rout_user }

@@ -1,10 +1,8 @@
 {
   "devDependencies": {
-<<<<<<< HEAD
-    "nodemon": "^3.1.7"
-=======
+    "nodemon": "^3.1.7",
     "nodemon": "^3.1.7",
     "yarn": "^1.22.22"
->>>>>>> bda9fd10cbb0dcf286aad59398a76acc3ec6cfbf
+
   }
 }
