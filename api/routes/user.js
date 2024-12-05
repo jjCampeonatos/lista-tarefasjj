@@ -42,11 +42,11 @@ rout_user.delete("/delete", (req, res) => {
 rout_user.put("/atualizacao", (req, res) => {
     const { nome, email, fone, data_nascimento, id } = req.body;
 
-    db.query(`update usuarios set nome='${nome}',update usuarios set email='${email}',update usuarios set fone='${fone}',update usuarios set data_nascimento='${data_nascimento}',
+    db.query(`update usuarios set nome='${nome}',email='${email}','fone='${fone}, 'data_nascimento='${data_nascimento}, 'id='${id}
     where id=${id}`, (err, result) => {
 
         res.json({
-            Edição: `Produto alterado com sucesso!`
+            Edição: `Usuario alterado com sucesso!`
         })
     })
 })
