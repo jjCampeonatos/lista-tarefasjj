@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -28,6 +28,22 @@ function App() {
     })
     
   }
+  function Home() {
+    const [users, setNome] = useState([])
+
+    async function getUsers(){
+      const userFrom = await api.get('http://localhost:3333/')
+        setUsers(userFrom.data)
+
+    }
+    useEffect(() => {
+      getUsers()
+
+      return() => {
+        
+      }
+    }, [])
+  }
 
   return (
     <>
@@ -52,10 +68,21 @@ function App() {
         <h1 className='text-get'>NOME</h1>
         <h1 className='text-get2'>E-MAIL</h1>
         <h1 className='text-get3'>FONE</h1>
-        <h1 className='text-get4'>DATA DE NASCIMENTO</h1>
-          
+        <h1 className='text-get4'>DATA DE NASCIMENTO</h1>   
       </div>
       </div>
+      {users.map( user => (
+        <div>
+          {user.name},
+          {user.email},
+          {user.fone},
+          {user.data_nascimento}
+        <div>
+          <button></button>
+        </div>
+      </div>
+      ))}
+      
     </>
   )
 }
