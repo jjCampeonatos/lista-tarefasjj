@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body{
   background-color:#001b23;
   display: flex;
@@ -71,32 +76,57 @@ form{
 
 .text-get{
 
-  margin-bottom: 22%;
-  margin-right: 8%;
-  font-size: 20px;
+  margin-bottom: 0%;
+  margin-right: 5%;
+  font-size: 15px;
+  border-right: 1px solid black;
+  height: 100%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  padding-right: 5%;
   margin-left: 4%;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 
 }
 
 .text-get2{
-  margin-bottom: 22%;
-  margin-right: 8%;
-  font-size: 20px;
+  margin-bottom: 0%;
+  margin-right: 5%;
+  font-size: 14px;
+  border-right: 1px solid black;
+  height: 100%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  padding-right: 5%;
+  padding-left: 0%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .text-get3{
-  margin-bottom: 22%;
-  margin-right: 8%;
-  font-size: 20px;
+  margin-bottom: 0%;
+  margin-right: 3%;
+  font-size: 15px;
+  border-right: 1px solid black;
+  height: 100%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  padding-right: 5%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .text-get4{
-  margin-bottom: 22%;
+  margin-bottom: 0%;
   margin-right: 8%;
-  font-size: 20px;
+  font-size: 15px;
+  border-right: 1px solid black;
+  height: 100%;
+  width: 21.7%;
+  display: flex;
+  justify-content: center;
+  padding-right: 3%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
