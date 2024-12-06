@@ -10,79 +10,81 @@ function App() {
   const [email, setEmail] = useState();
   const [fone, setFone] = useState();
   const [data_nascimento, setDataNascimento] = useState();
+  const [users, setNomeUser] = useState([])
 
-  function handleAddUser(e){
+
+  function handleAddUser(e) {
     e.preventDefault();
 
-    axios.post("http://localhost:3333/user",{
+    axios.post("http://localhost:3333/user", {
       nome,
       email,
       fone,
       data_nascimento
     })
-    .then((response)=>{
-      console.log("Cadastro realizado")
-    })
-    .catch((erro)=>{
-      console.log("Errooooo")
-    })
-    
+      .then((response) => {
+        console.log("Cadastro realizado")
+      })
+      .catch((erro) => {
+        console.log("Errooooo")
+      })
+
   }
   function Home() {
-    const [users, setNome] = useState([])
 
-    async function getUsers(){
-      const userFrom = await api.get('http://localhost:3333/')
-        setUsers(userFrom.data)
+    async function getUsers() {
+
+      setNomeUser(userFrom.data)
+
 
     }
-    useEffect(() => {
-      getUsers()
-
-      return() => {
-        
-      }
-    }, [])
   }
+  useEffect(async () => {
+    await axios.get('http://localhost:3333/lista')
+      .then((response) => {
+        console.log(response.data)
+        setNomeUser(response.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    // getUsers()
+
+  }, [])
 
   return (
     <>
-    <div id='borda'>
-    <div>
-      <h1 id='texth1'>Lista de Tarefas</h1>
-    </div>
-      <form onSubmit={handleAddUser}>
-        <input className='input' type="text" onChange={e=>setNome(e.target.value)}
-        placeholder='NOME'/>
-        <input className='input' type="text" onChange={e=>setEmail(e.target.value)}
-        placeholder='E-MAIL'/>
-        <input className='input' type="text" onChange={e=>setFone(e.target.value)}
-        placeholder='FONE'/>
-        <input className='input' type="text" onChange={e=>setDataNascimento(e.target.value)}
-        placeholder='DATA DE NASCIMENTO'/>
-        <div id='div-btn1'>
-          <button id='btn1' type='submit'>Cadastrar</button>
+      <div id='borda'>
+        <div>
+          <h1 id='texth1'>Cadastro</h1>
         </div>
-      </form>
-      <div className='div-get'>
-        <h1 className='text-get'>NOME</h1>
-        <h1 className='text-get2'>E-MAIL</h1>
-        <h1 className='text-get3'>FONE</h1>
-        <h1 className='text-get4'>DATA DE NASCIMENTO</h1>   
-      </div>
-      </div>
-      {users.map( user => (
-        <div>
-          {user.name},
-          {user.email},
-          {user.fone},
-          {user.data_nascimento}
-        <div>
-          <button></button>
+        <form onSubmit={handleAddUser}>
+          <input className='input' type="text" onChange={e => setNome(e.target.value)}
+            placeholder='NOME' />
+          <input className='input' type="text" onChange={e => setEmail(e.target.value)}
+            placeholder='E-MAIL' />
+          <input className='input' type="text" onChange={e => setFone(e.target.value)}
+            placeholder='FONE' />
+          <input className='input' type="text" onChange={e => setDataNascimento(e.target.value)}
+            placeholder='DATA DE NASCIMENTO' />
+          <div id='div-btn1'>
+            <button id='btn1' type='submit'>Cadastrar</button>
+          </div>
+        </form>
+        <div className='div-get'>
+          <h1 className='text-get'>NOME</h1>
+          {
+            users.map((item) => (
+              console.log(item.nome)
+            ))
+          }
+          <h1 className='text-get2'>E-MAIL</h1>
+          <h1 className='text-get3'>FONE</h1>
+          <h1 className='text-get4'>DATA DE NASCIMENTO</h1>
         </div>
       </div>
-      ))}
-      
+
+
     </>
   )
 }
