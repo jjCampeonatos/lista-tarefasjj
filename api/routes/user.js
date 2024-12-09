@@ -39,16 +39,17 @@ rout_user.delete("/delete", (req, res) => {
     });
 });
 
-rout_user.put("/atualizacao", (req, res) => {
-    const { nome, email, fone, data_nascimento, id } = req.body;
-
-    db.query(`update usuarios set nome='${nome}',email='${email}','fone='${fone}, 'data_nascimento='${data_nascimento}, 'id='${id}
-    where id=${id}`, (err, result) => {
-
-        res.json({
-            Edição: `Usuario alterado com sucesso!`
+rout_user.put('/atualizacao', (req,res) => {
+    const {id, nome, email, fone, data_nascimento} = req.body;
+    db.query(` update usuarios set nome = '${nome}', email = '${email}', fone='${fone}', data_nascimento='${data_nascimento}'
+        where id=${id} `, (err, result) => {
+            if(err){
+                return res.json("erroooooo"+err.message)
+            }
+            res.json({
+                Edicao:"usuario registrado com sucesso"
+            })
         })
-    })
 })
 
 
