@@ -4,7 +4,10 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import axios from "axios"
 
+
+
 function App() {
+  const [users, setUsers] = useState([])
 
   const [nome, setNome] = useState();
   const [email, setEmail] = useState();
@@ -28,22 +31,16 @@ function App() {
     })
     
   }
-  function Home() {
-    const [users, setNome] = useState([])
+  async function getUsers (){
+    const usersfrom = await axios.get('http://localhost:3333/lista')
 
-    async function getUsers(){
-      const userFrom = await api.get('http://localhost:3333/')
-        setUsers(userFrom.data)
-
-    }
-    useEffect(() => {
-      getUsers()
-
-      return() => {
-        
-      }
-    }, [])
+    setUsers( usersfrom.data )
   }
+
+  useEffect(() => {
+    getUsers()
+  })
+  
 
   return (
     <>
@@ -71,17 +68,18 @@ function App() {
         <h1 className='text-get4'>DATA DE NASCIMENTO</h1>   
       </div>
       </div>
-      {users.map( user => (
+      {users.map((user) => (
         <div>
-          {user.name},
-          {user.email},
-          {user.fone},
-          {user.data_nascimento}
-        <div>
-          <button></button>
+          <div>
+            <p>Nome: <span>{user.nome}</span></p>
+            <p>Nome: <span>{user.email}</span></p>
+            <p>Nome: <span>{user.fone}</span></p>
+            <p>Nome: <span>{user.data_nascimento}</span></p>
+          </div>
         </div>
-      </div>
+
       ))}
+      
       
     </>
   )
